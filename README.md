@@ -41,6 +41,7 @@ sdk.getFactories(5).then(factories => console.log("Factories:", factories));
 ## Subgraph
 
 This SDK queries a custom subgraph deployed at `https://api.studio.thegraph.com/query/<id>/dgswapSubgraphSDK/v0.0.1`. 
+
 It indexes data from the DragonSwap, starting at block `145316741`.
 
 
