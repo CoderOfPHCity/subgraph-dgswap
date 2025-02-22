@@ -29,10 +29,10 @@ function getOrCreateBundle(): Bundle {
 }
 
 export function handlePoolCreated(event: PoolCreatedEvent): void {
-  // Update Factory
+  // Factory
   let factory = getOrCreateFactory();
   factory.poolCount = factory.poolCount.plus(BigInt.fromI32(1));
-  factory.txCount = factory.txCount.plus(BigInt.fromI32(1)); // Approximation
+  factory.txCount = factory.txCount.plus(BigInt.fromI32(1)); 
   factory.save();
 
   // Create Pool

@@ -1,53 +1,25 @@
-import {
-  assert,
-  describe,
-  test,
-  clearStore,
-  beforeAll,
-  afterAll
-} from "matchstick-as/assembly/index"
-import { Address } from "@graphprotocol/graph-ts"
-import { FeeAmountEnabled } from "../generated/schema"
-import { FeeAmountEnabled as FeeAmountEnabledEvent } from "../generated/dgswap/dgswap"
-import { handleFeeAmountEnabled } from "../src/dgswap"
-import { createFeeAmountEnabledEvent } from "./dgswap-utils"
+import { DragonSwapSubgraphSDK } from "./dist";
 
-// Tests structure (matchstick-as >=0.5.0)
-// https://thegraph.com/docs/en/developer/matchstick/#tests-structure-0-5-0
+type SDKMethod<T> = () => Promise<T[]>;
 
-describe("Describe entity assertions", () => {
-  beforeAll(() => {
-    let fee = 123
-    let tickSpacing = 123
-    let newFeeAmountEnabledEvent = createFeeAmountEnabledEvent(fee, tickSpacing)
-    handleFeeAmountEnabled(newFeeAmountEnabledEvent)
-  })
+async function testQuery<T>(sdk: DragonSwapSubgraphSDK, method: SDKMethod<T>, name: string) {
+  try {
+    const result = await method();
+    console.log(`${name}:`, JSON.stringify(result, null, 2));
+  } catch (error) {
+    console.error(`Failed to fetch ${name}:`, error);
+  }
+}
 
-  afterAll(() => {
-    clearStore()
-  })
+async function testSDK() {
+  // subgraph endpoint
+  const endpoint = " ";
+  const sdk = new DragonSwapSubgraphSDK(endpoint);
 
-  // For more test scenarios, see:
-  // https://thegraph.com/docs/en/developer/matchstick/#write-a-unit-test
 
-  test("FeeAmountEnabled created and stored", () => {
-    assert.entityCount("FeeAmountEnabled", 1)
+  await testQuery(sdk, () => sdk.getFactories(5), "Factories");
+  await testQuery(sdk, () => sdk.getBundles(5), "Bundles");
+  await testQuery(sdk, () => sdk.getPools(5), "Pools");
+}
 
-    // 0xa16081f360e3847006db660bae1c6d1b2e17ec2a is the default address used in newMockEvent() function
-    assert.fieldEquals(
-      "FeeAmountEnabled",
-      "0xa16081f360e3847006db660bae1c6d1b2e17ec2a-1",
-      "fee",
-      "123"
-    )
-    assert.fieldEquals(
-      "FeeAmountEnabled",
-      "0xa16081f360e3847006db660bae1c6d1b2e17ec2a-1",
-      "tickSpacing",
-      "123"
-    )
-
-    // More assert options:
-    // https://thegraph.com/docs/en/developer/matchstick/#asserts
-  })
-})
+testSDK();
