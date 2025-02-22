@@ -31,6 +31,8 @@ npm run build
 ```
 https://gateway.thegraph.com/api/{api-key}/subgraphs/id/QmQzyMH4R9cm5BigV91YtETsYQoZ6dqYvDR1bmxVe3sXCr
 ```
+
+Deployed subgrpah tx: `https://arbiscan.io/tx/0x42f23c8481ab7d538c29adda02bf8594b4aecbbf24f4ad7e08ac62706aa15c92`
 ```typescript
 import { DragonSwapSubgraphSDK } from "@PaulElisha/subgraph-dgswap"; // import here until npm publish "../src"
 
