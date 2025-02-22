@@ -28,15 +28,16 @@ npm run build
 - Access to the DragonSwap subgraph endpoint (see [Subgraph](#subgraph)).
 
 ### Example Usage
-```
-https://gateway.thegraph.com/api/{api-key}/subgraphs/id/QmQzyMH4R9cm5BigV91YtETsYQoZ6dqYvDR1bmxVe3sXCr
-```
+
+Access the dgswap subgraph studio playground here: `https://thegraph.com/explorer/subgraphs/DFu3UKnkVWq4xgYq5NFerMu6puA9SkqdMyjjWmauwqqM?view=Query&chain=arbitrum-one`
+
+Endpoint Studio URL:`https://gateway.thegraph.com/api/[api-key]/subgraphs/id/2QEZxd4f115iTkW38MFmL6KZsq9uAYmCaFF2KLrZeSjK`
 
 Deployed subgrpah tx: `https://arbiscan.io/tx/0x42f23c8481ab7d538c29adda02bf8594b4aecbbf24f4ad7e08ac62706aa15c92`
 ```typescript
 import { DragonSwapSubgraphSDK } from "@PaulElisha/subgraph-dgswap"; // import here until npm publish "../src"
 
-const endpoint = " "; //geneate a subgraphID on `https://gateway.thegraph.com/api/{api-key}/subgraphs/id/QmQzyMH4R9cm5BigV91YtETsYQoZ6dqYvDR1bmxVe3sXCr`
+const endpoint = " "; //geneate a subgraph API on `https://gateway.thegraph.com/api/[api-key]/subgraphs/id/2QEZxd4f115iTkW38MFmL6KZsq9uAYmCaFF2KLrZeSjK`
 const sdk = new DragonSwapSubgraphSDK(endpoint);
 
 sdk.getFactories(5)
@@ -46,7 +47,7 @@ sdk.getFactories(5)
 
 ## Subgraph
 
-This SDK queries a custom subgraph deployed at `https://gateway.thegraph.com/api/{api-key}/subgraphs/id/QmQzyMH4R9cm5BigV91YtETsYQoZ6dqYvDR1bmxVe3sXCr`. 
+This SDK queries a custom subgraph deployed at `https://gateway.thegraph.com/api/[api-key]/subgraphs/id/2QEZxd4f115iTkW38MFmL6KZsq9uAYmCaFF2KLrZeSjK`. 
 
 It indexes data from the DragonSwap, starting at block `145316741`.
 
