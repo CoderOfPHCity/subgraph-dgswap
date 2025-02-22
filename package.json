@@ -1,6 +1,9 @@
 {
-  "name": "dgswap",
-  "license": "UNLICENSED",
+ "name": "subgraph-dgswap",
+  "version": "1.0.0",
+  "description": "SDK for querying DragonSwap data on Kaia blockchain",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
@@ -12,7 +15,14 @@
   },
   "dependencies": {
     "@graphprotocol/graph-cli": "0.96.0",
-    "@graphprotocol/graph-ts": "0.37.0"
+    "@graphprotocol/graph-ts": "0.37.0",
+    "graphql-request": "^6.1.0"
   },
-  "devDependencies": { "matchstick-as": "0.6.0" }
+  "devDependencies": { "matchstick-as": "0.6.0" },
+  "author": "Agantem Daniel,Paul Elisha",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PaulElisha/subgraph-dgswap.git"
+  }
 }

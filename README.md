@@ -30,30 +30,18 @@ npm run build
 ### Example
 
 ```typescript
-import { DragonSwapSubgraphSDK } from "@yourusername/dragonswap-subgraph-sdk";
+import { DragonSwapSubgraphSDK } from "@PaulElisha/subgraph-dgswap";
 
 const endpoint = " "; //geneate a subgraphID on `https://api.studio.thegraph.com/query/<id>/dgswapSubgraphSDK/v0.0.1`
 const sdk = new DragonSwapSubgraphSDK(endpoint);
 
-// Fetch factory data
-sdk.getFactories(5).then(factories => {
-  console.log("Factories:", factories);
-});
-
-// Fetch bundle data
-sdk.getBundles(5).then(bundles => {
-  console.log("Bundles:", bundles);
-});
-
-// Fetch pool data
-sdk.getPools(5).then(pools => {
-  console.log("Pools:", pools);
-});
+sdk.getFactories(5).then(factories => console.log("Factories:", factories));
 ```
 
 ## Subgraph
 
-This SDK queries a custom subgraph deployed at `https://api.studio.thegraph.com/query/<id>/dgswapSubgraphSDK/v0.0.1`. It indexes data from the DragonSwap, starting at block `145316741`.
+This SDK queries a custom subgraph deployed at `https://api.studio.thegraph.com/query/<id>/dgswapSubgraphSDK/v0.0.1`. 
+It indexes data from the DragonSwap, starting at block `145316741`.
 
 
 ## Development
@@ -78,9 +66,9 @@ MIT License. See [LICENSE](LICENSE) for details.
 
 ## Contact
 
-- GitHub: [subgraph-dgswap](https://github.com/PaulElisha/subgraph-dgswap)
+- GitHub: [PaulElisha](https://github.com/PaulElisha)
+- GitHub: [CoderOfPHCity)](https://github.com/CoderOfPHCity)
 - Issues: [kaia issues](https://github.com/kaiachain/kaia-dapp-mono/issues/398)
 
 ---
 Built with ❤️ for the Kaia blockchain community.
-```
