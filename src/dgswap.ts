@@ -32,7 +32,7 @@ export function handlePoolCreated(event: PoolCreatedEvent): void {
   // Factory
   let factory = getOrCreateFactory();
   factory.poolCount = factory.poolCount.plus(BigInt.fromI32(1));
-  factory.txCount = factory.txCount.plus(BigInt.fromI32(1)); 
+  factory.txCount = factory.txCount.plus(BigInt.fromI32(1));
   factory.save();
 
   // Create Pool

@@ -1,4 +1,4 @@
-import { GraphQLClient } from "graphql-request";
+import { GraphQLClient, RequestDocument } from "graphql-request";
 import { Factory, Bundle, Pool } from "./types";
 
 export class DragonSwapSubgraphSDK {
@@ -6,6 +6,21 @@ export class DragonSwapSubgraphSDK {
 
   constructor(endpoint: string) {
     this.client = new GraphQLClient(endpoint);
+  }
+
+  private async requestData<T>(
+    query: RequestDocument,
+    variables: { first: number },
+    entityName: string,
+  ): Promise<T> {
+    try {
+      const result = await this.client.request<T>(query, variables);
+      return result;
+    } catch (error) {
+      throw new Error(
+        `Failed to fetch ${entityName}: ${error instanceof Error ? error.message : String(error)}`,
+      );
+    }
   }
 
   async getFactories(first: number = 5): Promise<Factory[]> {
@@ -19,7 +34,11 @@ export class DragonSwapSubgraphSDK {
         }
       }
     `;
-    const result = await this.client.request<{ factories: Factory[] }>(query, { first });
+    const result = await this.requestData<{ factories: Factory[] }>(
+      query,
+      { first },
+      "factories",
+    );
     return result.factories;
   }
 
@@ -32,7 +51,11 @@ export class DragonSwapSubgraphSDK {
         }
       }
     `;
-    const result = await this.client.request<{ bundles: Bundle[] }>(query, { first });
+    const result = await this.requestData<{ bundles: Bundle[] }>(
+      query,
+      { first },
+      "bundles",
+    );
     return result.bundles;
   }
 
@@ -51,7 +74,11 @@ export class DragonSwapSubgraphSDK {
         }
       }
     `;
-    const result = await this.client.request<{ pools: Pool[] }>(query, { first });
+    const result = await this.requestData<{ pools: Pool[] }>(
+      query,
+      { first },
+      "pools",
+    );
     return result.pools;
   }
 }

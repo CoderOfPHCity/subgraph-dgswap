@@ -11,7 +11,8 @@
   "create-local": "graph create --node http://localhost:8020/ dgswap",
   "remove-local": "graph remove --node http://localhost:8020/ dgswap",
   "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 dgswap",
-  "test": "ts-node tests/dgswap.test.ts"
+  "test": "ts-node tests/dgswap.test.ts",
+  "format": "prettier --write \"src/**/*.{ts,js}\" \"tests/**/*.{ts,js}\""
  },
  "dependencies": {
   "@graphprotocol/graph-cli": "0.96.0",
