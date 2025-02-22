@@ -27,14 +27,14 @@ npm run build
 - A Node.js environment (v16+ recommended).
 - Access to the DragonSwap subgraph endpoint (see [Subgraph](#subgraph)).
 
-### Example
+### Example Usage
 ```
-https://gateway.thegraph.com/api/{api-key}/subgraphs/id/HUZDsRpEVP2AvzDCyzDHtdc64dyDxx8FQjzsmqSg4H3B
+https://gateway.thegraph.com/api/{api-key}/subgraphs/id/QmQzyMH4R9cm5BigV91YtETsYQoZ6dqYvDR1bmxVe3sXCr
 ```
 ```typescript
 import { DragonSwapSubgraphSDK } from "@PaulElisha/subgraph-dgswap"; // import here until npm publish "../src"
 
-const endpoint = " "; //geneate a subgraphID on `https://gateway.thegraph.com/api/{api-key}/subgraphs/id/HUZDsRpEVP2AvzDCyzDHtdc64dyDxx8FQjzsmqSg4H3B`
+const endpoint = " "; //geneate a subgraphID on `https://gateway.thegraph.com/api/{api-key}/subgraphs/id/QmQzyMH4R9cm5BigV91YtETsYQoZ6dqYvDR1bmxVe3sXCr`
 const sdk = new DragonSwapSubgraphSDK(endpoint);
 
 sdk.getFactories(5)
@@ -44,7 +44,7 @@ sdk.getFactories(5)
 
 ## Subgraph
 
-This SDK queries a custom subgraph deployed at `https://gateway.thegraph.com/api/{api-key}/subgraphs/id/HUZDsRpEVP2AvzDCyzDHtdc64dyDxx8FQjzsmqSg4H3B`. 
+This SDK queries a custom subgraph deployed at `https://gateway.thegraph.com/api/{api-key}/subgraphs/id/QmQzyMH4R9cm5BigV91YtETsYQoZ6dqYvDR1bmxVe3sXCr`. 
 
 It indexes data from the DragonSwap, starting at block `145316741`.
 

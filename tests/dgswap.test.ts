@@ -17,7 +17,7 @@ async function testQuery<T>(
 
 async function testSDK() {
   // subgraph endpoint
-  const endpoint = " ";
+  const endpoint = "https://gateway.thegraph.com/api/{api-key}/subgraphs/id/QmQzyMH4R9cm5BigV91YtETsYQoZ6dqYvDR1bmxVe3sXCr";
   const sdk = new DragonSwapSubgraphSDK(endpoint);
 
   await testQuery(sdk, () => sdk.getFactories(5), "Factories");
