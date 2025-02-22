@@ -44,6 +44,25 @@ This SDK queries a custom subgraph deployed at `https://api.studio.thegraph.com/
 It indexes data from the DragonSwap, starting at block `145316741`.
 
 
+### Summary of Indexed Data
+| Entity   | Field             | Description                          | Example Value                     |
+|----------|-------------------|--------------------------------------|-----------------------------------|
+| Factory  | `id`              | Factory address                      | `"0x7431A23897ecA6913D5c816..."` |
+|          | `poolCount`       | Number of pools created              | `"5"`                            |
+|          | `txCount`         | Approx. number of txs (pool creates) | `"5"`                            |
+|          | `totalVolumeUSD`  | Total volume in USD (placeholder)    | `"0"`                            |
+| Bundle   | `id`              | Fixed identifier                     | `"1"`                            |
+|          | `ethPriceUSD`     | Kaia price in USD (placeholder)      | `"0"`                            |
+| Pool     | `id`              | Tx hash + log index                  | `"0xabc123...-0"`               |
+|          | `token0`          | First token address                  | `"0xsomeToken0"`                |
+|          | `token1`          | Second token address                 | `"0xsomeToken1"`                |
+|          | `fee`             | Fee tier                             | `"500"`                         |
+|          | `tickSpacing`     | Tick spacing                         | `"10"`                          |
+|          | `blockNumber`     | Creation block                       | `"145316742"`                   |
+|          | `blockTimestamp`  | Creation timestamp                   | `"1698765432"`                  |
+|          | `transactionHash` | Creation tx hash                     | `"0xabc123..."`                |
+
+---
 ## Development
 
 ### Build
