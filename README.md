@@ -54,10 +54,10 @@ npm run build
 
 ### Test
 
-Create a `dgswap.test` file and run:
+Create a `dgswap.test.ts` file and run:
 
 ```bash
-ts-node dgswap.test
+`npm test`
 ```
 
 ## License

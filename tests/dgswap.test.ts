@@ -1,4 +1,4 @@
-import { DragonSwapSubgraphSDK } from "./dist";
+import { DragonSwapSubgraphSDK } from "../src";
 
 type SDKMethod<T> = () => Promise<T[]>;
 
